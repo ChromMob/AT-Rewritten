@@ -9,6 +9,7 @@ import io.github.niestrat99.advancedteleport.listeners.WorldLoadListener;
 import io.github.niestrat99.advancedteleport.managers.*;
 import io.github.niestrat99.advancedteleport.sql.*;
 import io.github.niestrat99.advancedteleport.utilities.RandomTPAlgorithms;
+import io.github.niestrat99.advancedteleport.utilities.TPRequest;
 import io.papermc.lib.PaperLib;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -88,6 +89,7 @@ public class CoreClass extends JavaPlugin {
         getLogger().info("Advanced Teleport is now enabling...");
         setupEconomy();
         setupPermissions();
+        TPRequest.registerListener();
         for (Class<? extends ATConfig> config : Arrays.asList(NewConfig.class, CustomMessages.class, Spawn.class, GUI.class)) {
             try {
                 config.getDeclaredConstructor().newInstance();

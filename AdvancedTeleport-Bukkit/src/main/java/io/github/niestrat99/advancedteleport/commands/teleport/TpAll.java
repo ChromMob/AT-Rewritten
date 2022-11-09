@@ -55,7 +55,7 @@ public class TpAll implements ATCommand {
                         TPRequest.removeRequest(TPRequest.getRequestByReqAndResponder(target, player));
                     }
                 };
-                run.runTaskLater(CoreClass.getInstance(), requestLifetime * 20); // 60 seconds
+                run.runTaskLater(CoreClass.getInstance(), requestLifetime * 20L); // 60 seconds
                 TPRequest request = new TPRequest(player, target, run, TPRequest.TeleportType.TPAHERE); // Creates a new teleport request.
                 TPRequest.addRequest(request);
                 // Cooldown for tpall is always applied after request
