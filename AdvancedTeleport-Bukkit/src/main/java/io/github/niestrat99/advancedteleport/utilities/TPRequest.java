@@ -104,7 +104,9 @@ public class TPRequest {
         if (!NewConfig.get().USE_MULTIPLE_REQUESTS.get()) {
             for (TPRequest otherRequest : getRequests(request.responder)) {
                 if (NewConfig.get().NOTIFY_ON_EXPIRE.get()) {
-                    CustomMessages.sendMessage(otherRequest.requester, "Info.requestDisplaced", "{player}", request.responder.getName());
+                    if (MultiLib.isLocalPlayer(otherRequest.getResponder())) {
+                        CustomMessages.sendMessage(otherRequest.requester, "Info.requestDisplaced", "{player}", request.responder.getName());
+                    }
                 }
                 otherRequest.destroy();
             }
